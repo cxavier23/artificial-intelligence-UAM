@@ -1,0 +1,113 @@
+Es un metal de transicion?
+Es radioactivo?
+Osmio
+%
+%
+Es un muy valioso?
+Oro
+%
+%
+Es magnetico?
+%
+%
+Hierro
+%
+%
+Es liquido?
+Mercurio
+%
+%
+Es muy resistente?
+Titanio
+%
+%
+Tungsteno
+%
+%
+Se encuentra en estado gaseoso en STP?
+Es no-reactivo?
+Helio
+%
+%
+Forma compuestos organicos?
+Oxigeno
+%
+%
+Es toxico?
+Cloro
+%
+%
+Se encuentra en las estrellas?
+Hidrogeno
+%
+%
+Forma nutrientes importantes para las plantas?
+Nitrogeno
+%
+%
+Es un gas noble que forma compuestos?
+Xenon
+%
+%
+Es inflamable?
+Oxigeno
+%
+%
+Es muy electronegativo?
+Fluor
+%
+%
+Kripton
+%
+%
+Es un no-metal?
+Forma compuestos organicos?
+Carbono
+%
+%
+Se utiliza para hacer semiconductores?
+Silicio
+%
+%
+Es radioactivo? 
+Polonio
+%
+%
+Tiene un indice de refraccion alto?
+Germanio
+%
+%
+Es un halogeno?
+Yodo
+%
+%
+Tiene alotropos con muchos atomos?
+Fosforo
+%
+%
+Es toxico?
+Arsenico
+%
+%
+Se usa para hacer vidrio?
+Selenio
+%
+%
+Se usa para controlar la fision nuclear en reactores?
+Boro
+%
+%
+Astato
+%
+%
+Es un metal alcalino-terreo?
+Bario
+%
+%
+Es un metal alcalino?
+Francio
+%
+%
+Aluminio
+%
+%

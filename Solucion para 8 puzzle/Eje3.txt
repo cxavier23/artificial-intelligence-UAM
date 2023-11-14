@@ -1,0 +1,149 @@
+#include <iostream> 
+#include <vector>   
+#include <stack>   
+#include <queue>
+using namespace std;
+
+template <typename T>
+class Graph 
+{
+	public:
+
+	int numNodos;
+	T nodos;
+	vector<vector<T>> ady;
+
+	Graph(int nNodos)
+	{
+    numNodos = nNodos;
+		ady.resize(numNodos);
+	}
+	
+	void addEdge(T v, T w)
+	{
+		ady[v].push_back(w);
+		ady[w].push_back(v);
+		return;
+	}
+
+	void DFS(T inicio, T fin, vector<T> & padre)
+	{
+		stack<T> pila;
+		vector<bool> visitado;
+		
+		padre.clear();
+		padre.resize(numNodos);
+		visitado.resize(numNodos, false);
+    pila.push(inicio);
+		visitado[inicio] = true;
+		padre[inicio] = -1;
+		
+    while(!pila.empty()) 
+		{
+        T nodo = pila.top();
+				//cout << nodo << " ";
+        pila.pop();
+
+				if(nodo == fin)
+				{
+					return;
+				}
+			
+        for(auto vecino : ady[nodo]) 
+				{
+            if(!visitado[vecino]) 
+						{
+                pila.push(vecino);
+                visitado[vecino] = true;
+								padre[vecino] = nodo;
+            }
+        }
+    }
+		return;
+}
+
+  void BFS(T inicio, T fin, vector<T> & padre)
+	{
+		queue<T> cola;
+		vector<bool> visitado;
+
+		padre.clear();
+		padre.resize(numNodos);
+		visitado.resize(numNodos, false);
+    cola.push(inicio);
+		visitado[inicio] = true;
+		padre[inicio] = -1;
+
+    while(!cola.empty()) 
+		{
+        T nodo = cola.front();
+        cola.pop();
+				//cout << nodo << " ";
+				
+				if(nodo == fin)
+				{
+					return;
+				}
+			
+        for(auto vecino : ady[nodo]) 
+				{
+            if(!visitado[vecino]) 
+						{
+                cola.push(vecino);
+                visitado[vecino] = true;
+								padre[vecino] = nodo;
+            }
+        }
+    }
+		return;
+	}
+};
+
+
+
+
+
+int main()
+{
+	int nodoInicial = 0;
+	int v = 6;
+	
+	vector<int> padre;
+	vector<int> camino;
+	
+	Graph<int> g(7);
+	g.addEdge(0, 1);
+	g.addEdge(0, 2);
+	g.addEdge(0, 3);
+	g.addEdge(2, 4);
+	g.addEdge(2, 5);
+	g.addEdge(3, 6);
+
+	cout << endl << "DFS" << endl;
+	g.DFS(nodoInicial, v, padre);
+  for(int i = v; i != -1; i = padre[i])
+	{
+    camino.push_back(i);
+	}
+	  for(int i : camino)
+	{
+    cout << i << " ";
+	}
+
+	padre.clear();
+	camino.clear();
+	cout << endl << endl << "BFS" << endl;
+	g.BFS(nodoInicial, v, padre);
+	
+  for(int i = v; i != -1; i = padre[i])
+	{
+    camino.push_back(i);
+	}
+  for(int i : camino)
+	{
+    cout << i << " ";
+	}
+
+	cout << endl << endl;
+	return 69;
+}

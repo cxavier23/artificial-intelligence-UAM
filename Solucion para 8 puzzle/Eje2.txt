@@ -1,0 +1,109 @@
+#include <iostream> 
+#include <vector>   
+#include <stack>   
+#include <queue>
+
+using namespace std;
+
+template <typename T>
+class Graph 
+{
+	public:
+
+	int numNodos;
+	T nodos;
+	vector<vector<T>> ady;
+
+	Graph(int nNodos)
+	{
+    numNodos = nNodos;
+		ady.resize(numNodos);
+	}
+	
+	void addEdge(T v, T w)
+	{
+		ady[v].push_back(w);
+		ady[w].push_back(v);
+		return;
+	}
+
+	void DFS(T v)
+	{
+		stack<T> pila;
+		vector<bool> visitado;
+
+		visitado.resize(numNodos, false);
+    pila.push(v);
+		visitado[v] = true;
+		
+    while(!pila.empty()) 
+		{
+        T nodo = pila.top();
+				cout << nodo << " ";
+        pila.pop();
+
+        for(auto vecino : ady[nodo]) 
+				{
+            if(!visitado[vecino]) 
+						{
+                pila.push(vecino);
+                visitado[vecino] = true;
+            }
+        }
+    }
+		return;
+}
+
+  void BFS(T v)
+	{
+		queue<T> cola;
+		vector<bool> visitado;
+
+		visitado.resize(numNodos, false);
+    cola.push(v);
+		visitado[v] = true;
+
+    while(!cola.empty()) 
+		{
+        T nodo = cola.front();
+        cola.pop();
+				cout << nodo << " ";
+
+        for(auto vecino : ady[nodo]) 
+				{
+            if(!visitado[vecino]) 
+						{
+                cola.push(vecino);
+                visitado[vecino] = true;
+            }
+        }
+    }
+		return;
+	}
+};
+
+
+
+
+
+int main()
+{
+	Graph<int> g(7);
+	g.addEdge(0, 1);
+	g.addEdge(0, 2);
+	g.addEdge(0, 3);
+	g.addEdge(2, 4);
+	g.addEdge(2, 5);
+	g.addEdge(3, 6);
+
+	int nodoInicial = 0;
+
+	cout << endl << "DFS" << endl;
+	g.DFS(nodoInicial);
+
+	cout << endl << endl << "BFS" << endl;
+	g.BFS(nodoInicial);
+
+	cout << endl << endl;
+	return 69;
+}
